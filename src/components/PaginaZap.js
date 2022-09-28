@@ -93,7 +93,7 @@ const Rodape = styled.div`
     left: 0;
     bottom: 0;
 
-    width: 375px;
+    width: 100%;
     height: 126px;
     background-color: #FFFFFF;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);

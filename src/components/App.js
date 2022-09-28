@@ -25,7 +25,7 @@ export default function App() {
             </Container>
 
             <PaginaZap estado={display} perguntasJS={perguntasJS}/>
-            
+
         </>
 
     )
@@ -46,7 +46,6 @@ const Container = styled.div`
     img{
         width: 136px;
         height: 161px;
-        display:${props => props.habilitado ? "none" : ""};
     }
     
     h1{
@@ -54,7 +53,6 @@ const Container = styled.div`
         font-family: 'Righteous', cursive;
         color: #FFFFFF;
         font-size: 50px;
-        display:${props => props.habilitado ? "none" : ""};
     }
     
     button{
