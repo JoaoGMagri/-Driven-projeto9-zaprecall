@@ -2,17 +2,13 @@ import styled from 'styled-components';
 import Play from "./img/play-outline-icon.svg"
 import ViraCard from "./img/setinha.png"
 import React, { useState } from "react";
-
 import certo from "./img/checkmark-circle-icon.svg"
 import errado from "./img/close-circle-icon.svg"
 import talvez from "./img/help-circle-icon.svg"
 
-export default function Perguntas({ pergunta, resposta, index }) {
+export default function Perguntas({ pergunta, resposta, index, completo, contador, icone, setIcone, cor, setCor }) {
 
-    const numeroDaPergunta =`Pergunta ${index + 1}`;
-    console.log(numeroDaPergunta);
-    console.log(pergunta);
-    console.log(resposta);
+    const numeroDaPergunta = `Pergunta ${index + 1}`;
 
     const [estado, setEstado] = useState("");
     const [texto, setTexto] = useState(numeroDaPergunta);
@@ -23,8 +19,7 @@ export default function Perguntas({ pergunta, resposta, index }) {
     const [riscoNaPalavra, setRiscoNaPalavra] = useState(false);
     const [corLetra, setCorLetra] = useState("#333333");
     const [corSVG, setCorSVG] = useState("");
-    
-    console.log(texto);
+
 
     function aparecerPergunta(texto) {
 
@@ -43,25 +38,50 @@ export default function Perguntas({ pergunta, resposta, index }) {
     }
 
     function respostas(parametro) {
-        
+
         setTexto(numeroDaPergunta);
         setImagemaparece(true);
         setBotaoparece(false);
         setAparenciaCatao(true);
         setRiscoNaPalavra(true);
+        completo(contador + 1);
 
         if (parametro === "errei") {
             setCorLetra("#FF3030");
             setImagem(errado);
             setCorSVG("invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)");
+
+            cor[index] = "invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)";
+            const arrarCor = cor;
+            setCor(arrarCor);
+            
+            icone[index] = errado;
+            const arrary = icone;
+            setIcone(arrary);
         } else if (parametro === "quase") {
             setCorLetra("#FF922E");
             setImagem(talvez);
             setCorSVG("invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)");
+            
+            cor[index] = "invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)";
+            const arrarCor = cor;
+            setCor(arrarCor);
+            
+            icone[index] = talvez;
+            const arrary = icone;
+            setIcone(arrary);
         } else if (parametro === "certo") {
             setCorLetra("#2FBE34");
-            setImagem(certo);
+            setImagem(certo); 
             setCorSVG("invert(59%) sepia(10%) saturate(3410%) hue-rotate(72deg) brightness(99%) contrast(88%)");
+            
+            cor[index] = "invert(59%) sepia(10%) saturate(3410%) hue-rotate(72deg) brightness(99%) contrast(88%)";
+            const arrarCor = cor;
+            setCor(arrarCor);
+            
+            icone[index] = certo;
+            const arrary = icone;
+            setIcone(arrary);
         }
 
     }
@@ -106,6 +126,7 @@ export default function Perguntas({ pergunta, resposta, index }) {
 
     )
 }
+
 const ContainerPergunta = styled.div`
 
     display: flex; 

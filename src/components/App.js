@@ -15,6 +15,7 @@ export default function App() {
 
     return (
         <>
+
             <Container habilitado={display} >
                 <GlobalStyle />
 
@@ -24,6 +25,7 @@ export default function App() {
             </Container>
 
             <PaginaZap estado={display} perguntasJS={perguntasJS}/>
+            
         </>
 
     )
