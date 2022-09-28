@@ -6,15 +6,16 @@ import certo from "./img/checkmark-circle-icon.svg"
 import errado from "./img/close-circle-icon.svg"
 import talvez from "./img/help-circle-icon.svg"
 
-export default function Perguntas({ pergunta, resposta, index, completo, contador, icone, setIcone, cor, setCor }) {
-
+export default function Perguntas(props) {
+    const {pergunta, resposta, index, setCompleto, completo, setAcertos, acertos, icone, setIcone, cor, setCor } = props;
     const coresSVG = [
         "invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)",
         "invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)",
         "invert(59%) sepia(10%) saturate(3410%) hue-rotate(72deg) brightness(99%) contrast(88%)"
     ]
     const numeroDaPergunta = `Pergunta ${index + 1}`;
-
+    
+    
     const [estado, setEstado] = useState("");
     const [texto, setTexto] = useState(numeroDaPergunta);
     const [imagem, setImagem] = useState(Play)
@@ -49,7 +50,7 @@ export default function Perguntas({ pergunta, resposta, index, completo, contado
         setBotaoparece(false);
         setAparenciaCatao(true);
         setRiscoNaPalavra(true);
-        completo(contador + 1);
+        setCompleto(completo + 1);
 
         if (parametro === "errei") {
             setCorLetra("#FF3030");
@@ -68,6 +69,7 @@ export default function Perguntas({ pergunta, resposta, index, completo, contado
             icone[index] = talvez;
             
         } else if (parametro === "certo") {
+            setAcertos(acertos + 1);
             setCorLetra("#2FBE34");
             setImagem(certo); 
             setCorSVG(coresSVG[2]);
