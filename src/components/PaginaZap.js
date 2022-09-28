@@ -51,17 +51,22 @@ export default function PaginaZap({ estado, perguntasJS }) {
 const ContainerPaginaZap = styled.div`
     display: ${props => props.estado ? "" : "none"};
     background-color: #FB6B6B;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     position: relative;
-    margin-bottom: 126px;
 `
 const Topo = styled.div`
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:1;
+    width: 100%;
+    height: 126px;
+    background-color: #FB6B6B;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 54px;
     
     h1{
         display: inline;
@@ -72,14 +77,12 @@ const Topo = styled.div`
         font-family: 'Righteous', cursive;
         color: #FFFFFF;
         margin-left: 20px;
-        margin-top: 60px;
     }
 
     img{
         display: inline;
         width: 52px;
         height: 60px;
-        margin-top: 60px;
     }
 `
 const Corpo = styled.div`
@@ -87,6 +90,7 @@ const Corpo = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 126px 0px;
 `
 const Rodape = styled.div`
     position: fixed;

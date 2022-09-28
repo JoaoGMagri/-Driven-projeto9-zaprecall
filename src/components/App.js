@@ -37,7 +37,7 @@ const Container = styled.div`
     background-color: #FB6B6B;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: ${props => props.habilitado ? "none" : "flex"};
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -64,9 +64,9 @@ const Container = styled.div`
         border: 1px solid #D70900;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
         border-radius: 5px;
+        &:hover{
+            cursor: pointer;
+            background-color: #cea2a0
+        }
     }
-    
-    display:${props => props.habilitado ? "none" : ""};
-    
-    
 `

@@ -8,6 +8,11 @@ import talvez from "./img/help-circle-icon.svg"
 
 export default function Perguntas({ pergunta, resposta, index, completo, contador, icone, setIcone, cor, setCor }) {
 
+    const coresSVG = [
+        "invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)",
+        "invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)",
+        "invert(59%) sepia(10%) saturate(3410%) hue-rotate(72deg) brightness(99%) contrast(88%)"
+    ]
     const numeroDaPergunta = `Pergunta ${index + 1}`;
 
     const [estado, setEstado] = useState("");
@@ -49,47 +54,36 @@ export default function Perguntas({ pergunta, resposta, index, completo, contado
         if (parametro === "errei") {
             setCorLetra("#FF3030");
             setImagem(errado);
-            setCorSVG("invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)");
+            setCorSVG(coresSVG[0]);
 
-            cor[index] = "invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)";
-            const arrarCor = cor;
-            setCor(arrarCor);
-            
+            cor[index] = coresSVG[0];
             icone[index] = errado;
-            const arrary = icone;
-            setIcone(arrary);
+            
         } else if (parametro === "quase") {
             setCorLetra("#FF922E");
             setImagem(talvez);
-            setCorSVG("invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)");
+            setCorSVG(coresSVG[1]);
             
-            cor[index] = "invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)";
-            const arrarCor = cor;
-            setCor(arrarCor);
-            
+            cor[index] = coresSVG[1];
             icone[index] = talvez;
-            const arrary = icone;
-            setIcone(arrary);
+            
         } else if (parametro === "certo") {
             setCorLetra("#2FBE34");
             setImagem(certo); 
-            setCorSVG("invert(59%) sepia(10%) saturate(3410%) hue-rotate(72deg) brightness(99%) contrast(88%)");
+            setCorSVG(coresSVG[2]);
             
-            cor[index] = "invert(59%) sepia(10%) saturate(3410%) hue-rotate(72deg) brightness(99%) contrast(88%)";
-            const arrarCor = cor;
-            setCor(arrarCor);
-            
+            cor[index] = coresSVG[2];
             icone[index] = certo;
-            const arrary = icone;
-            setIcone(arrary);
         }
+
+        setCor(cor);
+        setIcone(icone);
 
     }
 
     return (
 
         <ContainerPergunta
-            onClick={() => aparecerPergunta(estado)}
             aparencia={aparenciaCatao}
             disposicao={botaoparece}
         >
@@ -107,7 +101,7 @@ export default function Perguntas({ pergunta, resposta, index, completo, contado
                 aparece={imagemaparece}
                 cor={corSVG}
             >
-                <img src={imagem} alt='' />
+                <img onClick={() => aparecerPergunta(estado)} src={imagem} alt='' />
             </ImagemDoCartao>
 
             <ListDeBotoes
@@ -165,7 +159,8 @@ const ImagemDoCartao = styled.div`
         width: ${props => props.aparencia ? "20px" : "30px"};
         height: ${props => props.aparencia ? "23px" : "20px"};
         margin-right: 20px;
-        display: ${props => props.aparece ? "inline" : "none"}
+        display: ${props => props.aparece ? "inline" : "none"};
+        cursor: ${props => props.cor === "" ? "pointer" : ""};
     }
 
 `
@@ -174,7 +169,7 @@ const ListDeBotoes = styled.div`
     display: ${props => props.aparece ? "flex" : "none"};
     justify-content: space-around;
     align-items: center;
-`
+    `
 const Botao = styled.button`
     background-color: ${props => props.background};
     width: 75px;
@@ -190,5 +185,10 @@ const Botao = styled.button`
     font-weight: 400;
     font-size: 12px;
     color: #FFFFFF;
+    
+    &:hover{
+        cursor: pointer;
+        filter: brightness(0.7);
+    }
 
 `
