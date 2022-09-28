@@ -26,12 +26,12 @@ export default function Config() {
 
     }
 
-    function escolhaDeck(deck) {
+    function escolhaDeck(index) {
         setCor(true);
-
-        switch (deck) {
-            case 0: setDeck(perguntasJS[0]); break;
-            case 1: setDeck(perguntasJS[1]); break;
+        console.log(index);
+        switch (index) {
+            case "1": setDeck(perguntasJS[0]); console.log("caso1"); break;
+            case "2": setDeck(perguntasJS[1]); console.log("caso2"); break;
 
             default:break;
         }
@@ -58,10 +58,10 @@ export default function Config() {
                 <h1>ZapRecall</h1>
 
                 <SeletorDeDeck seta={seta} cor={cor} aparece={tela}>
-                    <select>
+                    <select onChange={(item) => escolhaDeck(item.target.value)}>
                         <TesteOption value={0}>Escolha seu deck</TesteOption>
-                        <option onClick={() => escolhaDeck(0)} value={1}>Deck React</option>
-                        <option onClick={() => escolhaDeck(1)} value={2}>Deck Percy Jackson</option>
+                        <option value={1}>Deck React</option>
+                        <option value={2}>Deck Percy Jackson</option>
                     </select>
                 </SeletorDeDeck>
 
