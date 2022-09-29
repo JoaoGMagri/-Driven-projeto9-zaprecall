@@ -38,6 +38,10 @@ export default function Config() {
         switch (index) {
             case "1": setDeck(perguntasJS[0]); break;
             case "2": setDeck(perguntasJS[1]); break;
+            case "3": setDeck(perguntasJS[2]); break;
+            case "4": setDeck(perguntasJS[3]); break;
+            case "5": setDeck(perguntasJS[4]); break;
+            case "6": setDeck(perguntasJS[5]); break;
 
             default:break;
         }
@@ -66,8 +70,12 @@ export default function Config() {
                 <SeletorDeDeck seta={seta} cor={cor} aparece={tela}>
                     <select onChange={(item) => escolhaDeck(item.target.value)}>
                         <TesteOption value={0}>Escolha seu deck</TesteOption>
-                        <option value={1}>Deck React</option>
-                        <option value={2}>Deck Percy Jackson</option>
+                        <option value={1}>Deck do Harry Potter</option>
+                        <option value={2}>Deck de Mitologia Grega</option>
+                        <option value={3}>Deck React</option>
+                        <option value={4}>Deck Percy Jackson</option>
+                        <option value={5}>Deck de pokémon</option>
+                        <option value={6}>Deck LOL</option>
                     </select>
                 </SeletorDeDeck>
 

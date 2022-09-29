@@ -139,6 +139,7 @@ const ContainerPergunta = styled.div`
 
     margin-bottom: 10px;
     position: relative;
+    border-radius: 5px;
 `
 const TextoDoCatao = styled.div`
     display:flex;

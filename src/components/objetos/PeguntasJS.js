@@ -1,4 +1,95 @@
 const perguntasJS = [
+    //Deck do Harry Potter ft.Biro
+    [
+        {
+            pergunta: "Como é feita a seleção dos novos alunos para suas respectivas casas?", 
+            resposta: "Pelo chapéu seletor"
+        },
+        {
+            pergunta: "Qual é o nome daquele que não deve ser nomeado?", 
+            resposta: "Voldemort"
+        },
+        {
+            pergunta: "Quantos filmes tem a franquia de Harry Potter?", 
+            resposta: "8 Filmes"
+        },
+        {
+            pergunta: "Quantas Horcruxes existem?", 
+            resposta: "7"
+        },
+        {
+            pergunta: "Qual gêmeo morre na segunda guerra bruxa?",
+            resposta: "Fred"
+        },
+        {
+            pergunta: "Qual é o padrinho do Harry Potter?", 
+            resposta: "Sirius Black"
+        },
+        {
+            pergunta: "Qual grupo Harry Potter criou no 5° livro da saga?", 
+            resposta: "Armada de Dumbbledore"
+        },
+        {
+            pergunta: "Quem substituiu o Harry na posição de apanhador?", 
+            resposta: "Gina Weasley"
+        },
+        {
+            pergunta: "Qual poção transfigurava pessoas", 
+            resposta: "Poção Polisuco"
+        },
+        {
+            pergunta: "Qual animal aparece para aqueles que já viram a morte", 
+            resposta: "Testrálios"
+        },
+        {
+            pergunta: "Quem matou Sirius Black?", 
+            resposta: "Bellatrix Lestrange"
+        },
+        {
+            pergunta: "O que deve ser dito ao usar/ao fechar o Mapa do Maroto?", 
+            resposta: '"Juro solenemente que não farei o bem" e "Malfeito feito"'
+        }
+    ],
+    //Deck de Mitologia Grega
+    [
+        {
+            pergunta: "Qual foi a punição que Hércules recebeu por assasinar a própria esposa?",
+            resposta: "Realizar 12 difíceis"
+        },
+        {
+            pergunta: "Quem decifrou o enigma da esfinge?",
+            resposta: "Édipo"
+        },
+        {
+            pergunta: "Quem decapitou a Medusa?",
+            resposta: "Perseu, filho de Zeus"
+        },
+        {
+            pergunta: "Qual é o deus do Sol?",
+            resposta: "Apolo"
+        },
+        {
+            pergunta: "Qual é o deus do prazer?",
+            resposta: "Dionísio"
+        },
+        {
+            pergunta: "Qual é a deusa da beleza e do amor?",
+            resposta: "Afrodite"
+        },
+        {
+            pergunta: "Qual é o deus do submundo?",
+            resposta: "Hades"
+        },
+        {
+            pergunta: "Qual é o deus do deuses?",
+            resposta: "Zeus"
+        },
+        {
+            pergunta: "Bônus: Quem deitou o Zeus na porrada",
+            resposta: "Kratos, O bom de guerra!"
+        }
+    ],
+    //Deck React
     [
         {
             pergunta: "O que é JSX?",
@@ -33,6 +124,7 @@ const perguntasJS = [
             resposta: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"
         }
     ],
+    //Deck Percy Jackson
     [
         {
             pergunta: "Quem é o pai do Percy Jackson?",
@@ -65,6 +157,76 @@ const perguntasJS = [
         {
             pergunta: "Qual o nome da espada do Percy?",
             resposta: "Anaklusmos"
+        }
+    ],
+    //Deck de pokémon
+    [
+        {
+            pergunta: "Qual é a evolução do pikachu?",
+            resposta: "Raichu"
+        },
+        {
+            pergunta: "Quantos pokémons conseguem mega-evoluir para X e Y?",
+            resposta: "Charizard e Mewtwo"
+        },
+        {
+            pergunta: "Quais são os iniciais da 1° Gen?",
+            resposta: "Charmander, Squirtle e Bulbasaur"
+        },
+        {
+            pergunta: "Qual o rival do Ash na região de Kanto?",
+            resposta: "Gary Carvalho"
+        },
+        {
+            pergunta: "Qual pokémon tinha uma gangue?",
+            resposta: "Squirtle"
+        },
+        {
+            pergunta: "Quantas eeveelutions existem?",
+            resposta: "8"
+        },
+        {
+            pergunta: "Qual pokémon o Ash encontrou em uma pedra, em um dia chuvoso?",
+            resposta: "Charmander"
+        },
+        {
+            pergunta: "Quem é considerado o deus pokémon?",
+            resposta: "Arceus"
+        }
+    ],
+    //Deck LOL
+    [
+        {
+            pergunta: "Quem é o irmão do Yasuo?",
+            resposta: "Yone"
+        },
+        {
+            pergunta: "Jinx e de Quê? ",
+            resposta: " de Jinx"
+        },
+        {
+            pergunta: "Qual é o campeão mais novo do Lol ?",
+            resposta: "Nilah"
+        },
+        {
+            pergunta: "Qual é a posição menos escolhida no Lol ?",
+            resposta: "Suporte"
+        },
+        {
+            pergunta: "Quais São os Dragões que aparecem no LOL ?",
+            resposta: "Infernal,Nuvens,Hextech,Oceano e Montanha"
+        },
+        {
+            pergunta: "Quando o Adc e o Suporte ajudam o jungle a farmar , qual o nome da ação?",
+            resposta: "Leash"
+        },
+        {
+            pergunta: "O que significa ARAM?",
+            resposta: "All Random All mid "
+        },
+        {
+            pergunta: "Quantos Campeões tem no Lol?",
+            resposta: "161"
         }
     ]
 ];
