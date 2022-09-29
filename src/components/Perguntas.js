@@ -88,11 +88,13 @@ export default function Perguntas(props) {
     return (
 
         <ContainerPergunta
+            data-identifier="flashcard"
             aparencia={aparenciaCatao}
             disposicao={botaoparece}
-        >
+            >
 
             <TextoDoCatao
+                data-identifier="flashcard-index-item"
                 aparencia={aparenciaCatao}
                 cor={corLetra}
                 risco={riscoNaPalavra}
@@ -101,6 +103,7 @@ export default function Perguntas(props) {
             </TextoDoCatao>
 
             <ImagemDoCartao
+                data-identifier="flashcard-show-btn"
                 aparencia={aparenciaCatao}
                 aparece={imagemaparece}
                 cor={corSVG}

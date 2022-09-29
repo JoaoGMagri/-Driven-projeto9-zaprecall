@@ -34,10 +34,10 @@ export default function Config() {
 
     function escolhaDeck(index) {
         setCor(true);
-        console.log(index);
+
         switch (index) {
-            case "1": setDeck(perguntasJS[0]); console.log("caso1"); break;
-            case "2": setDeck(perguntasJS[1]); console.log("caso2"); break;
+            case "1": setDeck(perguntasJS[0]); break;
+            case "2": setDeck(perguntasJS[1]); break;
 
             default:break;
         }
