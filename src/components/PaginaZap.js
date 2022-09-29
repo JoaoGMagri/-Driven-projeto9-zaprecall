@@ -1,25 +1,40 @@
+//Funcionalidades
 import styled from "styled-components";
-import LogoPequeno from "./img/logo-pequeno.png";
-import Perguntas from "./Perguntas";
 import React, { useState } from "react";
+
+//Imagens
+import LogoPequeno from "./img/logo-pequeno.png";
 import circulo from "./img/circle-outline-svgrepo-com.svg";
 
+//Paginas
+import Perguntas from "./Perguntas";
+
 export default function PaginaZap({ estado, perguntasJS, quantidaDeAcertos }) {
-  const [completo, setCompleto] = useState(0);
-  const [acertos, setAcertos] = useState(0);
+
   const [icone, setIcone] = useState(Array(perguntasJS.length).fill(circulo));
   const [cor, setCor] = useState(Array(perguntasJS.length).fill(""));
+  const [corTexto, setCorTexto] = useState("black");
+  const [textoFinal, setTextoFinal] = useState("");
+  const [completo, setCompleto] = useState(0);
+  const [acertos, setAcertos] = useState(0);
 
-  if (completo === perguntasJS.length) {
-    if (acertos >= quantidaDeAcertos) {
-      alert("Deu bom");
-    } else {
-      alert("Deu ruim");
+  function finalDosCards(){
+
+    if (completo+1 === perguntasJS.length) {
+      if (acertos >= quantidaDeAcertos) {
+        setTextoFinal("Deu bom, Parabéns");
+        setCorTexto("green");
+      } else {
+        setTextoFinal("Deu ruim, Putz");
+        setCorTexto("red");
+      }
     }
+
   }
 
   return (
     <ContainerPaginaZap estado={estado}>
+
       <Topo>
         <img src={LogoPequeno} alt="Logo" />
         <h1>ZapRecall</h1>
@@ -32,6 +47,7 @@ export default function PaginaZap({ estado, perguntasJS, quantidaDeAcertos }) {
             pergunta={item.pergunta}
             resposta={item.resposta}
             index={i}
+            finalDosCards={finalDosCards}
             setCompleto={setCompleto}
             completo={completo}
             setAcertos={setAcertos}
@@ -49,12 +65,19 @@ export default function PaginaZap({ estado, perguntasJS, quantidaDeAcertos }) {
         <span>
           {completo}/{perguntasJS.length} CONCLUÍDOS
         </span>
+
+        <TextoFinal cor={corTexto}>
+          {textoFinal}
+        </TextoFinal>
+
         <RodapeResultado>
           {perguntasJS.map((item, i) => (
             <IconeEstilo src={icone[i]} alt="" cor={cor[i]} key={i} />
           ))}
         </RodapeResultado>
+
       </Rodape>
+
     </ContainerPaginaZap>
   );
 }
@@ -116,6 +139,10 @@ const Rodape = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  span{
+    font-family: 'Recursive', sans-serif;
+    font-style: normal;
+  }
 `;
 const RodapeResultado = styled.div`
   display: flex;
@@ -127,3 +154,9 @@ const IconeEstilo = styled.img`
   height: 23px;
   filter: ${(props) => props.cor};
 `;
+const TextoFinal = styled.span`
+  color: ${props => props.cor};
+  font-family: 'Recursive', sans-serif;
+  font-style: normal;
+  font-size: 30px;
+`

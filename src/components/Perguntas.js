@@ -1,13 +1,16 @@
+//Funcionalidades
 import styled from 'styled-components';
-import Play from "./img/play-outline-icon.svg"
-import ViraCard from "./img/setinha.png"
 import React, { useState } from "react";
+
+//Imagens
+import play from "./img/play-outline-icon.svg"
+import viraCard from "./img/setinha.png"
 import certo from "./img/checkmark-circle-icon.svg"
 import errado from "./img/close-circle-icon.svg"
 import talvez from "./img/help-circle-icon.svg"
 
 export default function Perguntas(props) {
-    const {pergunta, resposta, index, setCompleto, completo, setAcertos, acertos, icone, setIcone, cor, setCor } = props;
+    const {pergunta, resposta, index, finalDosCards, setCompleto, completo, setAcertos, acertos, icone, setIcone, cor, setCor } = props;
     const coresSVG = [
         "invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)",
         "invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)",
@@ -15,15 +18,14 @@ export default function Perguntas(props) {
     ]
     const numeroDaPergunta = `Pergunta ${index + 1}`;
     
-    
-    const [estado, setEstado] = useState("");
-    const [texto, setTexto] = useState(numeroDaPergunta);
-    const [imagem, setImagem] = useState(Play)
+    const [riscoNaPalavra, setRiscoNaPalavra] = useState(false);
+    const [aparenciaCatao, setAparenciaCatao] = useState(true);
     const [imagemaparece, setImagemaparece] = useState(true);
     const [botaoparece, setBotaoparece] = useState(false);
-    const [aparenciaCatao, setAparenciaCatao] = useState(true);
-    const [riscoNaPalavra, setRiscoNaPalavra] = useState(false);
+    const [texto, setTexto] = useState(numeroDaPergunta);
     const [corLetra, setCorLetra] = useState("#333333");
+    const [imagem, setImagem] = useState(play);
+    const [estado, setEstado] = useState("");
     const [corSVG, setCorSVG] = useState("");
 
 
@@ -31,7 +33,7 @@ export default function Perguntas(props) {
 
         if (texto === "") {
             setTexto(pergunta);
-            setImagem(ViraCard);
+            setImagem(viraCard);
             setEstado("pergunta");
             setAparenciaCatao(false);
         } else if (texto === "pergunta") {
@@ -80,7 +82,7 @@ export default function Perguntas(props) {
 
         setCor(cor);
         setIcone(icone);
-
+        finalDosCards();
     }
 
     return (
@@ -124,7 +126,6 @@ export default function Perguntas(props) {
 }
 
 const ContainerPergunta = styled.div`
-
     display: flex; 
     flex-direction: ${props => props.disposicao ? "column" : "flex"};
     justify-content: space-between;
@@ -137,7 +138,6 @@ const ContainerPergunta = styled.div`
     position: relative;
 `
 const TextoDoCatao = styled.div`
-    
     display:flex;
     justify-content:center;
     align-items: center;
@@ -150,8 +150,7 @@ const TextoDoCatao = styled.div`
     text-decoration:${props => props.risco ? "line-through" : ""}; 
     margin: 0px 15px;
 `
-const ImagemDoCartao = styled.div`
-    
+const ImagemDoCartao = styled.div` 
     display: flex;
     justify-content: center;
     align-items: ${props => props.aparencia ? "center" : "flex-end"};
@@ -164,14 +163,13 @@ const ImagemDoCartao = styled.div`
         display: ${props => props.aparece ? "inline" : "none"};
         cursor: ${props => props.cor === "" ? "pointer" : ""};
     }
-
 `
 const ListDeBotoes = styled.div`
     width: 100%;
     display: ${props => props.aparece ? "flex" : "none"};
     justify-content: space-around;
     align-items: center;
-    `
+`
 const Botao = styled.button`
     background-color: ${props => props.background};
     width: 75px;
@@ -192,5 +190,4 @@ const Botao = styled.button`
         cursor: pointer;
         filter: brightness(0.7);
     }
-
 `

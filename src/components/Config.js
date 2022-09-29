@@ -1,19 +1,25 @@
+//Funcionalidades
 import styled from "styled-components";
+import { useState } from "react";
 
-import PaginaZap from './PaginaZap';
-import perguntasJS from './objetos/PeguntasJS';
+//Imagens
 import logoGrande from "./img/logo.png";
 import seta from "./img/Vector.png"
-import { useState } from "react";
+
+//Paginas
+import PaginaZap from './PaginaZap';
+
+//Objetos
+import perguntasJS from './objetos/PeguntasJS';
 
 export default function Config() {
 
+    const [quantidaDeAcertos, setQuantidaDeAcertos] = useState(0);
+    const [habilitaBotao, serHabilitaBotao] = useState(true);
     const [deck, setDeck] = useState(perguntasJS[0]);
     const [some, setSome] = useState(false);
     const [cor, setCor] = useState(false);
     const [tela, setTela] = useState(0);
-    const [habilitaBotao, serHabilitaBotao] = useState(true); 
-    const [quantidaDeAcertos, setQuantidaDeAcertos] = useState(0);
 
     function trocaDeTelas(estado) {
         
@@ -41,7 +47,7 @@ export default function Config() {
     function ativaBotao(item) {
         const itemNumero = Number(item);
 
-        if(itemNumero >= (deck.length/4) && itemNumero <= (deck.length)){
+        if(itemNumero >= 1 && itemNumero <= (deck.length)){
             serHabilitaBotao(false);
             setQuantidaDeAcertos(item);
         } else{
@@ -65,6 +71,7 @@ export default function Config() {
                     </select>
                 </SeletorDeDeck>
 
+                <Aviso aparece={tela}>Escolha um número entre 1 e {deck.length}</Aviso>
                 <SeletorDoImput aparece={tela} type="text" placeholder="Digite sua meta de zaps..." onChange={(item) => ativaBotao(item.target.value)}/>
 
 
@@ -80,7 +87,6 @@ export default function Config() {
 }
 
 const ContainerConfig = styled.div`
-
     background-color: #fb6b6b;
     width: 100vw;
     height: 100vh;
@@ -101,9 +107,7 @@ const ContainerConfig = styled.div`
         color: #ffffff;
         font-size: 50px;
     }
-
 `
-
 const SeletorDeDeck = styled.div`
     display: ${props => props.aparece === 1 ? "" : "none"};
 
@@ -130,21 +134,23 @@ const SeletorDeDeck = styled.div`
 
         border: 0px;
         border-radius: 5px;
-
-        
     }
-    
 `
 const TesteOption = styled.option`
     display:none;
 `
-
+const Aviso = styled.span`
+    display: ${props => props.aparece === 2 ? "" : "none"};
+    font-family: 'Recursive', sans-serif;
+    font-style: normal;
+    color: white;
+    margin-bottom: 5px;
+`
 const SeletorDoImput = styled.input`
     display: ${props => props.aparece === 2 ? "" : "none"};
     width: 246px;
     height: 40px;
 `
-
 const TrocaTelas = styled.button`
     display: ${props => props.aparece !== 2 ? "" : "none"};
 
@@ -162,7 +168,6 @@ const TrocaTelas = styled.button`
     background-color: #cea2a0;
     }
 `
-
 const ComecaCards = styled.button`
     display: ${props => props.aparece === 2 ? "" : "none"};
     margin-top: 10px;    
@@ -179,5 +184,4 @@ const ComecaCards = styled.button`
     cursor: ${props => props.habilita ? "" : "pointer"};
     background-color: #cea2a0;
     }
-
 `
