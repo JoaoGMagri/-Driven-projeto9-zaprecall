@@ -62,7 +62,7 @@ export default function PaginaZap({ estado, perguntasJS, quantidaDeAcertos }) {
       </Corpo>
 
       <Rodape>
-        <span>
+        <span data-identifier="flashcard-counter">
           {completo}/{perguntasJS.length} CONCLUÍDOS
         </span>
 

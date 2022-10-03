@@ -68,22 +68,22 @@ export default function Config() {
                 <h1>ZapRecall</h1>
 
                 <SeletorDeDeck seta={seta} cor={cor} aparece={tela}>
-                    <select onChange={(item) => escolhaDeck(item.target.value)}>
+                    <select data-identifier="deck-selector" onChange={(item) => escolhaDeck(item.target.value)}>
                         <TesteOption value={0}>Escolha seu deck</TesteOption>
-                        <option value={1}>Deck do Harry Potter</option>
-                        <option value={2}>Deck de Mitologia Grega</option>
-                        <option value={3}>Deck React</option>
-                        <option value={4}>Deck Percy Jackson</option>
-                        <option value={5}>Deck de pokémon</option>
-                        <option value={6}>Deck LOL</option>
+                        <option data-identifier="deck-option" value={1}>Deck do Harry Potter</option>
+                        <option data-identifier="deck-option" value={2}>Deck de Mitologia Grega</option>
+                        <option data-identifier="deck-option" value={3}>Deck React</option>
+                        <option data-identifier="deck-option" value={4}>Deck Percy Jackson</option>
+                        <option data-identifier="deck-option" value={5}>Deck de pokémon</option>
+                        <option data-identifier="deck-option" value={6}>Deck LOL</option>
                     </select>
                 </SeletorDeDeck>
 
                 <Aviso aparece={tela}>Escolha um número entre 1 e {deck.length}</Aviso>
-                <SeletorDoImput aparece={tela} type="text" placeholder="Digite sua meta de zaps..." onChange={(item) => ativaBotao(item.target.value)}/>
+                <SeletorDoImput data-identifier="goals-input" aparece={tela} type="text" placeholder="Digite sua meta de zaps..." onChange={(item) => ativaBotao(item.target.value)}/>
 
 
-                <TrocaTelas onClick={() => trocaDeTelas(tela)} aparece={tela}>Iniciar Recall!</TrocaTelas>
+                <TrocaTelas data-identifier="start-btn" onClick={() => trocaDeTelas(tela)} aparece={tela}>Iniciar Recall!</TrocaTelas>
                 <ComecaCards onClick={() => setSome(true)} disabled={habilitaBotao} habilita={habilitaBotao} aparece={tela}>Iniciar Recall!</ComecaCards>
             </ContainerConfig>
 

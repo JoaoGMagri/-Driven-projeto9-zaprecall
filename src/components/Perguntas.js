@@ -27,6 +27,8 @@ export default function Perguntas(props) {
     const [imagem, setImagem] = useState(play);
     const [estado, setEstado] = useState("");
     const [corSVG, setCorSVG] = useState("");
+    const [dataTexto, setDataTexto] = useState("flashcard-index-item");
+    const [dataImg, setdataImg] = useState("flashcard-show-btn");
 
 
     function aparecerPergunta(texto) {
@@ -36,11 +38,14 @@ export default function Perguntas(props) {
             setImagem(viraCard);
             setEstado("pergunta");
             setAparenciaCatao(false);
+            setDataTexto("flashcard-question");
+            setdataImg("flashcard-turn-btn");
         } else if (texto === "pergunta") {
             setTexto(resposta);
             setImagemaparece(false);
             setBotaoparece(true);
             setEstado("x");
+            setDataTexto("flashcard-answer")
         }
 
     }
@@ -53,6 +58,8 @@ export default function Perguntas(props) {
         setAparenciaCatao(true);
         setRiscoNaPalavra(true);
         setCompleto(completo + 1);
+        setDataTexto("flashcard-index-item");
+        setdataImg("flashcard-status");
 
         if (parametro === "errei") {
             setCorLetra("#FF3030");
@@ -94,7 +101,7 @@ export default function Perguntas(props) {
             >
 
             <TextoDoCatao
-                data-identifier="flashcard-index-item"
+                data-identifier={dataTexto}
                 aparencia={aparenciaCatao}
                 cor={corLetra}
                 risco={riscoNaPalavra}
@@ -103,7 +110,7 @@ export default function Perguntas(props) {
             </TextoDoCatao>
 
             <ImagemDoCartao
-                data-identifier="flashcard-show-btn"
+                data-identifier={dataImg}
                 aparencia={aparenciaCatao}
                 aparece={imagemaparece}
                 cor={corSVG}
@@ -115,11 +122,11 @@ export default function Perguntas(props) {
                 aparece={botaoparece}
             >
 
-                <Botao onClick={() => { respostas("errei") }} background={"#FF3030"}>Não lembrei</Botao>
+                <Botao onClick={() => { respostas("errei") }} data-identifier="forgot-btn" background={"#FF3030"}>Não lembrei</Botao>
 
-                <Botao onClick={() => { respostas("quase") }} background={"#FF922E"}>Quase não lembrei</Botao>
+                <Botao onClick={() => { respostas("quase") }} data-identifier="almost-forgot-btn" background={"#FF922E"}>Quase não lembrei</Botao>
 
-                <Botao onClick={() => { respostas("certo") }} background={"#2FBE34"}>Zap!</Botao>
+                <Botao onClick={() => { respostas("certo") }} data-identifier="zap-btn" background={"#2FBE34"}>Zap!</Botao>
 
             </ListDeBotoes>
 
